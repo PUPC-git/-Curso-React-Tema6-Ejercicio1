@@ -7,7 +7,8 @@ import MensajesTable from '../../components/MensajesTable/MensajesTable.componen
 export default function Mensajes() {
     const [mensajes, setMensajes] = useState([]);
 
-    let nuevoMensaje = () => {
+    let nuevoMensaje = (object) => {
+        console.log(object);
         let nuevo = {
             "asunto": "yyyy",
             "email": "email@email.com",
