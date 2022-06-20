@@ -8,6 +8,7 @@ export default function Mensajes() {
     const [mensajes, setMensajes] = useState([]);
 
     let nuevoMensaje = (object) => {
+        console.log('entramos');
         console.log(object);
         let nuevo = {
             "asunto": "yyyy",

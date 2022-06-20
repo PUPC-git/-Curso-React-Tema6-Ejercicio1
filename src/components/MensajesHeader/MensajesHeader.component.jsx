@@ -8,8 +8,8 @@ export default function MensajesHeader(props) {
 
   const validaciones = Yup.object().shape({
     asunto: Yup.string().required('Debe introducir un valor en el asunto'),
-    email: Yup.string().required('Debe introducir un email'),
-    mensaje: Yup.string().required('Debe introducir un mensaje')
+    email: Yup.string().required('Debe introducir un email').email('No tiene el formato de email'),
+    mensaje: Yup.string().required('Debe introducir un mensaje').min(10, 'Minimo 10 caracteres...')
   });
 
   let leerDatos = (event, {setSubmitting}) => {
@@ -54,7 +54,7 @@ export default function MensajesHeader(props) {
             {/* esta linea si la descomento me genera un bucle infinito sacando los datos de nuevoMensaje de la view*/}
             {/*<button onClick={props.clickNuevo(mensajeNuevo)} className="Nuevo">Nuevo</button>*/}
             
-              <button onClick={props.clickNuevo.object} type="submit" className="Nuevo" disabled={isSubmitting}>Nuevo</button>
+              <button onClick={props.clickNuevo} type="submit" className="Nuevo" disabled={isSubmitting}>Nuevo</button>
               <button onClick={props.clickEliminar} className="Vaciar">Vaciar</button>  
               <br/>
                 {errors.asunto ? (<div>{errors.asunto}</div>) : null}
